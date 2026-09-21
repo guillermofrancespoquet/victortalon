@@ -157,12 +157,43 @@
   .pn-receta-step { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: #444; line-height: 1.55; }
   .pn-receta-step-num { min-width: 22px; height: 22px; border-radius: 50%; background: #f0f0f0; border: 1px solid #e0e0e0; font-size: 11px; font-weight: 600; color: #666; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
   .pn-receta-tip { font-size: 12px; color: #888; border-left: 2px solid #ddd; padding-left: 8px; margin-top: 0.75rem; line-height: 1.5; }
+
+  /* ── SECCIÓN COLAPSABLE ── */
+  .pn-collapse { border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden; margin-bottom: 1rem; }
+  .pn-collapse-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; cursor: pointer; background: #fafafa; transition: background 0.15s; user-select: none; }
+  .pn-collapse-header:hover { background: #f3f3f3; }
+  .pn-collapse-title { font-size: 13px; font-weight: 600; color: #111; display: flex; align-items: center; gap: 8px; }
+  .pn-collapse-arrow { font-size: 12px; color: #aaa; transition: transform 0.2s; }
+  .pn-collapse.open .pn-collapse-arrow { transform: rotate(90deg); }
+  .pn-collapse-body { display: none; border-top: 1px solid #e5e5e5; background: #fff; }
+  .pn-collapse.open .pn-collapse-body { display: block; }
+
+  /* ── COMPETICIÓN ── */
+  .pn-prueba-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 0; }
+  .pn-prueba-table th { background: #1e3a5f; color: #fff; padding: 8px 12px; text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .pn-prueba-table td { padding: 9px 12px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; font-size: 12px; color: #333; }
+  .pn-prueba-table tr:last-child td { border-bottom: none; }
+  .pn-prueba-table tr:nth-child(even) td { background: #f9fafb; }
+  .pn-fase-block { padding: 1rem 1.25rem; }
+  .pn-fase-title { font-size: 11px; font-weight: 700; color: #1e3a5f; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; padding-bottom: 0.35rem; border-bottom: 1px solid #e0e8f4; }
+  .pn-fase-desc { font-size: 13px; color: #444; line-height: 1.65; margin-bottom: 0.6rem; }
+  .pn-fase-items { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.5rem; }
+  .pn-fase-item { font-size: 11px; background: #ebf5fb; border: 1px solid #b5d4f4; border-radius: 6px; padding: 3px 10px; color: #0c447c; }
+  .pn-fase-note { font-size: 12px; color: #888; border-left: 2px solid #ddd; padding-left: 8px; line-height: 1.5; margin-top: 4px; }
+  .pn-fase-divider { border: none; border-top: 1px solid #e8edf2; margin: 0.85rem 0; }
+  .pn-competition-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 6px; }
+  .comp-natacion  { background: #d1fae5; color: #065f46; }
+  .comp-fuerza    { background: #dbeafe; color: #1e40af; }
+  .comp-cuerda    { background: #fef3c7; color: #92400e; }
+  .comp-run       { background: #ede9fe; color: #4c1d95; }
+  .comp-torre     { background: #fee2e2; color: #991b1b; }
+
 </style>
 </head>
 <body>
 
 <h1>Planificación Nutricional — Víctor Talón</h1>
-<p class="subtitle">Opositor a bombero · Base 90% plant-based · 4 comidas/día · ~2.750 kcal · Preparación final — pruebas septiembre</p>
+<p class="subtitle">Opositor a bombero · Base 90% plant-based · 4 comidas/día · ~2.750 kcal · Semana de pruebas &#8212; 21 sept &#8211; 8 oct 2026</p>
 
 <!-- BLOQUE DESCRIPCIÓN CLIENTE -->
 <div style="border:1px solid #e5e5e5;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;background:#fafafa;">
@@ -488,78 +519,65 @@
     <button class="pn-print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
   </div>
   <div style="overflow-x:auto;border-radius:12px;border:1px solid #e5e5e5;">
-    <table style="width:100%;border-collapse:collapse;min-width:700px;font-size:12px;">
+    <table style="width:100%;border-collapse:collapse;min-width:900px;font-size:11.5px;">
       <thead>
         <tr>
-          <!-- Cabecera: azul marino pastel, acorde con el estilo del documento -->
           <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;width:46px;"></th>
-          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Lunes</th>
-          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Martes</th>
-          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Miércoles</th>
-          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Jueves</th>
-          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Viernes</th>
-          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Sábado</th>
-          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Domingo</th>
+          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Lu 21</th>
+          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Ma 22</th>
+          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Mi 23</th>
+          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Ju 24</th>
+          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Vi 25 🏊</th>
+          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Sa 26</th>
+          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;border-right:1px solid #c5d8ed;">Do 27</th>
+          <th style="background:#dce8f5;color:#1a2e44;padding:9px 10px;text-align:center;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;">Lu 28 💪</th>
         </tr>
       </thead>
       <tbody>
-
-        <!-- ── DESAYUNO ── -->
         <tr>
-          <td style="background:#f7f7f7;padding:8px 6px;border-right:2px solid #e0e0e0;border-bottom:1px solid #eee;text-align:center;vertical-align:middle;">
-            <span class="pn-badge badge-d" style="display:inline-block;">D</span>
-          </td>
-          <td style="background:#f9fcf5;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostadas con tomate triturado, AOVE y sal + zumo + café</td>
-          <td style="background:#f9fcf5;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostadas con tomate triturado, AOVE y sal + zumo + café — tomar 6:30h (series 9h)</td>
-          <td style="background:#f9fcf5;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostadas con tomate triturado, AOVE y sal + zumo + café</td>
-          <td style="background:#f9fcf5;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostadas con tomate triturado, AOVE y sal + zumo + café</td>
-          <td style="background:#f9fcf5;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Overnight Oats pre-carrera — salida 6:30h</td>
-          <td style="background:#f9fcf5;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostadas con tomate triturado, AOVE y sal + zumo + café — tomar 9:00h (series natación 14h)</td>
-          <td style="background:#f9fcf5;padding:8px 10px;border-bottom:1px solid #eee;text-align:center;color:#999;font-style:italic;line-height:1.4;">Café en ayunas</td>
+          <td style="background:#f7f7f7;padding:8px 6px;border-right:2px solid #e0e0e0;border-bottom:1px solid #eee;text-align:center;vertical-align:middle;"><span class="pn-badge badge-d" style="display:inline-block;">D</span></td>
+          <td style="background:#f9fcf5;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostadas con tomate + AOVE + zumo + café</td>
+          <td style="background:#f9fcf5;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostadas con tomate + AOVE + zumo + café</td>
+          <td style="background:#f9fcf5;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostadas con tomate + AOVE + zumo + café (pre-carrera)</td>
+          <td style="background:#f9fcf5;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostadas con tomate + AOVE + zumo + café</td>
+          <td style="background:#f0f6ff;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#1a3d6b;font-weight:600;line-height:1.4;">🏊 Desayuno pre-prueba natación — CHO rápidos sin fibra</td>
+          <td style="background:#f9fcf5;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostadas con tomate + AOVE + zumo + café</td>
+          <td style="background:#f9fcf5;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostadas con tomate + AOVE + zumo + café</td>
+          <td style="background:#f0f6ff;padding:8px 10px;border-bottom:1px solid #eee;text-align:center;color:#1a3d6b;font-weight:600;line-height:1.4;">💪 Desayuno pre-prueba 60m + Press Banca — CHO rápidos</td>
         </tr>
-
-        <!-- ── ALMUERZO ── -->
         <tr>
-          <td style="background:#f7f7f7;padding:8px 6px;border-right:2px solid #e0e0e0;border-bottom:1px solid #eee;text-align:center;vertical-align:middle;">
-            <span class="pn-badge badge-a" style="display:inline-block;">A</span>
-          </td>
-          <td style="background:#f3fdf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">🥪 Sandwich hummus + aguacate + tomate + fruta</td>
+          <td style="background:#f7f7f7;padding:8px 6px;border-right:2px solid #e0e0e0;border-bottom:1px solid #eee;text-align:center;vertical-align:middle;"><span class="pn-badge badge-a" style="display:inline-block;">A</span></td>
+          <td style="background:#f3fdf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">🥪 Sandwich hummus + aguacate + tomate + plátano + fruta</td>
+          <td style="background:#f3fdf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">🥪 Sandwich hummus + verduras + 2 plátanos + fruta</td>
+          <td style="background:#f3fdf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">🥪 Sandwich hummus + salmón + fruta</td>
+          <td style="background:#f3fdf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">🥪 Sandwich hummus + edamame + zanahoria + plátano + fruta</td>
+          <td style="background:#f0f6ff;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#1a3d6b;font-weight:600;line-height:1.4;">Top-up CHO (opcional) + cafeína</td>
           <td style="background:#f3fdf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">🥪 Sandwich hummus + verduras + fruta</td>
-          <td style="background:#f3fdf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">🥪 Sandwich hummus + salmón + pepino + fruta</td>
-          <td style="background:#f3fdf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">🥪 Sandwich hummus + edamame + zanahoria + fruta</td>
-          <td style="background:#f3fdf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostada salmón ahumado + queso + aguacate + chía (fuera de casa)</td>
-          <td style="background:#f3fdf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Bowl yogur + granola + plátano + frutos rojos (pre-natación)</td>
-          <td style="background:#f3fdf8;padding:8px 10px;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Tostadas hummus + aguacate + yogur + fruta</td>
+          <td style="background:#f3fdf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">🥪 Sandwich hummus + edamame + plátano + fruta</td>
+          <td style="background:#f0f6ff;padding:8px 10px;border-bottom:1px solid #eee;text-align:center;color:#1a3d6b;font-weight:600;line-height:1.4;">Top-up CHO + cafeína</td>
         </tr>
-
-        <!-- ── COMIDA ── -->
         <tr>
-          <td style="background:#f7f7f7;padding:8px 6px;border-right:2px solid #e0e0e0;border-bottom:1px solid #eee;text-align:center;vertical-align:middle;">
-            <span class="pn-badge badge-c" style="display:inline-block;">C</span>
-          </td>
-          <td style="background:#fffaf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Arroz integral con pollo a la plancha y verduras</td>
-          <td style="background:#fffaf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Ensalada de cuscús integral con alubias y almendras</td>
-          <td style="background:#fffaf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Arroz integral con sardinas en lata 🐟</td>
-          <td style="background:#fffaf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Boloñesa vegana con edamame 🫛</td>
-          <td style="background:#fffaf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Ensalada de lentejas con pollo y verduras a la plancha</td>
-          <td style="background:#fbeaf0;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#72243E;font-style:italic;line-height:1.4;">Libre</td>
-          <td style="background:#fffaf8;padding:8px 10px;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Ensalada de sardinas con garbanzos y patatas 🐟</td>
+          <td style="background:#f7f7f7;padding:8px 6px;border-right:2px solid #e0e0e0;border-bottom:1px solid #eee;text-align:center;vertical-align:middle;"><span class="pn-badge badge-c" style="display:inline-block;">C</span></td>
+          <td style="background:#fffaf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Arroz blanco + pollo a la plancha + verduras cocidas</td>
+          <td style="background:#fffaf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Arroz blanco + sardinas en lata + verduras cocidas 🐟</td>
+          <td style="background:#fffaf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Arroz blanco + pollo a la plancha + verduras cocidas</td>
+          <td style="background:#fffaf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Arroz blanco + garbanzos + verduras cocidas 🫛</td>
+          <td style="background:#f0f6ff;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#1a3d6b;font-weight:600;line-height:1.4;">Recuperación post-natación</td>
+          <td style="background:#fffaf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Arroz integral + sardinas en lata + ensalada variada 🐟</td>
+          <td style="background:#fffaf8;padding:8px 10px;border-right:1px solid #eee;border-bottom:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Arroz blanco + pollo a la plancha + verduras cocidas (CHO pre-prueba)</td>
+          <td style="background:#f0f6ff;padding:8px 10px;border-bottom:1px solid #eee;text-align:center;color:#1a3d6b;font-weight:600;line-height:1.4;">Recuperación post-60m y press banca</td>
         </tr>
-
-        <!-- ── CENA ── -->
         <tr>
-          <td style="background:#f7f7f7;padding:8px 6px;border-right:2px solid #e0e0e0;text-align:center;vertical-align:middle;">
-            <span class="pn-badge badge-ce" style="display:inline-block;">Ce</span>
-          </td>
-          <td style="background:#fdf8ff;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Ensalada de garbanzos, huevo y patatas</td>
-          <td style="background:#fdf8ff;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Quesadillas con pollo</td>
-          <td style="background:#fdf8ff;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Seitán a la pimienta con arroz integral</td>
-          <td style="background:#fdf8ff;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Curry de garbanzos con patatas</td>
-          <td style="background:#fdf8ff;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Verduras a la plancha con tofu y gnocchis</td>
-          <td style="background:#fbeaf0;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#72243E;font-style:italic;line-height:1.4;">Libre</td>
-          <td style="background:#fdf8ff;padding:8px 10px;text-align:center;color:#333;line-height:1.4;">2 Pizzas caseras</td>
+          <td style="background:#f7f7f7;padding:8px 6px;border-right:2px solid #e0e0e0;text-align:center;vertical-align:middle;"><span class="pn-badge badge-ce" style="display:inline-block;">Ce</span></td>
+          <td style="background:#fdf8ff;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Pasta blanca + tomate + garbanzos</td>
+          <td style="background:#fdf8ff;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Pasta blanca + edamame + salsa de tomate 🫛</td>
+          <td style="background:#fdf8ff;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Cena de carga — Arroz blanco + proteína magra + verdura cocida</td>
+          <td style="background:#fffde7;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#5a3a00;line-height:1.4;">🌙 NOCHE PREVIA natación — Arroz blanco + proteína magra + verdura</td>
+          <td style="background:#fdf8ff;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#333;line-height:1.4;">Noche libre tranquila — sin protocolo</td>
+          <td style="background:#fbeaf0;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#72243E;font-style:italic;line-height:1.4;">Libre 🎉</td>
+          <td style="background:#fffde7;padding:8px 10px;border-right:1px solid #eee;text-align:center;color:#5a3a00;line-height:1.4;">🌙 NOCHE PREVIA 60m+banca — Arroz blanco + proteína magra + verdura</td>
+          <td style="background:#fdf8ff;padding:8px 10px;text-align:center;color:#333;line-height:1.4;">Cena de recuperación + carga (cuerda)</td>
         </tr>
-
       </tbody>
     </table>
   </div>
@@ -593,165 +611,206 @@
 </div>
 
 <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #e5e5e5;">
-  <div class="section-label">Suplementación recomendada</div>
+  <div class="section-label">Suplementación</div>
   <div class="pn-supl-block">
     <div class="pn-supl-item">
       <div class="pn-supl-dot"></div>
-      <div><strong>Creatina monohidrato — 5 g/día (opcional en fase final)</strong> — Ha estado tomándola durante la preparación con buena tolerancia. A 1 mes de las pruebas, puede mantenerse o pausarse — los depósitos musculares ya están saturados. Si se mantiene, tomarla con agua antes del entrenamiento o en cualquier momento del día. No hay efecto negativo en continuar.</div>
+      <div><strong>Creatina monohidrato &#8212; 5 g/día</strong> &#8212; Con el desayuno, todos los días. Los depósitos de fosfocreatina están saturados tras semanas de suplementación — no parar ahora. Clave para las pruebas de máxima intensidad (natación, sprint, press banca, cuerda).</div>
     </div>
     <div class="pn-supl-item">
       <div class="pn-supl-dot"></div>
-      <div><strong>Cafeína — 200–300 mg</strong> — Tomar 30–45 min antes de las sesiones clave: press banca (lunes), series en pista (martes) y cuerda/tracciones (jueves). <strong style="color:#BA7517;">⚠️ Nunca estrenar en competición</strong> — ya debe estar probada en entrenamiento. Evitar después de las 16h. Ajustar dosis según tolerancia individual.</div>
+      <div><strong>Cafeína &#8212; 200 mg</strong> &#8212; Los días de prueba: tomar a las 07:15h (30&#8211;45 min antes de las 08:00h). Mejora la activación del SNC, tiempo de reacción y fuerza máxima. <span style="color:#888;font-size:12px;">La cafeína está en lista de monitorización WADA (no prohibida) &#8212; 200 mg muy por debajo del umbral de 12 &#181;g/mL en orina.</span></div>
     </div>
     <div class="pn-supl-item">
       <div class="pn-supl-dot"></div>
-      <div><strong>L-Citrulina — 6 g (evidencia moderada, valorar)</strong> — Aminoácido precursor de óxido nítrico que mejora el flujo sanguíneo al músculo activo y facilita la eliminación de amoníaco y lactato. La evidencia es moderada: una revisión sistemática de Trexler et al. (2019) muestra mejora significativa en rendimiento de fuerza y potencia de alta intensidad, aunque un ensayo de 2024 (Martin-Olmedo et al.) no encontró diferencias respecto a placebo. El beneficio es más claro en ejercicio anaeróbico que aeróbico, lo que la hace pertinente para el press banca y la prueba de cuerda/tracciones. Dosis: 6 g de L-citrulina pura, 45–60 min antes. Efectos adversos: generalmente bien tolerada; posibles molestias gastrointestinales en algunos casos. <strong style="color:#BA7517;">⚠️ Probar obligatoriamente en entrenamiento antes de las pruebas — no combinar por primera vez en competición.</strong></div>
+      <div><strong>L-Citrulina &#8212; 6 g</strong> &#8212; Con el desayuno pre-prueba (45&#8211;60 min antes). Precursor de óxido nítrico — mejora el flujo sanguíneo al músculo y facilita la eliminación de lactato. Especialmente relevante en press banca y cuerda.</div>
     </div>
   </div>
 </div>
 
 <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #e5e5e5;">
-  <div class="section-label">Estrategia nutricional — Pruebas de oposición</div>
+  <div class="section-label">Pruebas de oposici&#243;n a bombero &#8212; Septiembre/Octubre 2026</div>
 
-  <!-- Introducción -->
-  <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem;font-size:13px;color:#475569;line-height:1.65;">
-    <strong style="color:#1a2e44;">Entrenamiento GI (intestinal):</strong> los días de práctica — <strong>martes, miércoles y sábado</strong> — se sustituye el arroz integral por <strong>arroz blanco</strong> (mayor IG, sin fibra que retrase el vaciado) y se ajusta el pre-entreno con fuentes de CHO de absorción rápida. El resto de la semana mantiene la base habitual. <strong>Nunca estrenar protocolo en la prueba oficial</strong> — todo debe estar probado previamente en entrenamiento.
+  <!-- Calendario de pruebas -->
+  <div style="overflow-x:auto;border-radius:12px;border:1px solid #e5e5e5;margin-bottom:1rem;">
+    <table class="pn-prueba-table">
+      <thead>
+        <tr>
+          <th>Prueba</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Lugar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="pn-competition-badge comp-natacion">&#127946; Nataci&#243;n 100m</span></td>
+          <td><strong>Vie 25/09</strong></td>
+          <td>08:00h</td>
+          <td>Piscina Nazaret, C/ Parque de Nazaret s/n, 46024 Val&#232;ncia</td>
+        </tr>
+        <tr>
+          <td><span class="pn-competition-badge comp-fuerza">&#9889; 60m + Press Banca</span></td>
+          <td><strong>Dom 28/09</strong></td>
+          <td>08:00h</td>
+          <td>Vel&#243;dromo Llu&#237;s Puig, C/ Cocentaina 4, Benim&#224;met</td>
+        </tr>
+        <tr>
+          <td><span class="pn-competition-badge comp-cuerda">&#129306; Cuerda</span></td>
+          <td><strong>Lu&#8211;Ma 29&#8211;30/09</strong></td>
+          <td>08:00h</td>
+          <td>Parque Central de Bomberos, Avda. de la Plata s/n</td>
+        </tr>
+        <tr>
+          <td><span class="pn-competition-badge comp-run">&#127939; 3000m</span></td>
+          <td><strong>Ju&#8211;Vi 1&#8211;2/10</strong></td>
+          <td>08:00h</td>
+          <td>Estadio del Turia, Tramo III &#183; (backup 13&#8211;14 oct)</td>
+        </tr>
+        <tr>
+          <td><span class="pn-competition-badge comp-torre">&#127959; Subida torre</span></td>
+          <td><strong>Lu&#8211;Ju 5&#8211;8/10</strong></td>
+          <td>08:00h</td>
+          <td>Parque Bomberos Campanar, Bulevar Norte</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-
-    <!-- ── PRUEBA 3000m ── -->
-    <div style="border:1px solid #bfdbfe;border-radius:12px;overflow:hidden;">
-      <div style="background:#1e40af;padding:0.85rem 1.25rem;">
-        <div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:0.02em;">🏃 Prueba 3000m</div>
-        <div style="font-size:11px;color:#93c5fd;margin-top:3px;">~8–12 min · >85–90% VO₂máx · Glucolítico · Practicar: martes (series pista)</div>
-      </div>
-      <div style="padding:1rem 1.25rem;background:#fff;display:flex;flex-direction:column;gap:10px;">
-
-        <div style="border-left:3px solid #3b82f6;padding-left:10px;">
-          <div style="font-size:10px;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">2–3h antes · ~95–110 g CHO · ⏱ Ej. 6:00–7:00h si la prueba es a las 9h</div>
-          <div style="font-size:12px;color:#334155;line-height:1.6;">
-            150–200 g arroz blanco cocido <span style="color:#64748b;">(~55–75 g)</span><br>
-            + 1 plátano maduro <span style="color:#64748b;">(~25 g)</span><br>
-            + 1–2 cdas. mermelada <span style="color:#64748b;">(~15 g)</span><br>
-            <span style="font-size:11px;color:#94a3b8;">Sin avena, sin grasa, sin fibra extra. Dejar al menos 2h antes de calentar.</span>
-          </div>
-        </div>
-
-        <div style="border-left:3px solid #93c5fd;padding-left:10px;">
-          <div style="font-size:10px;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">30–45 min antes · ~35 g CHO (opcional) · ⏱ Ej. 8:15–8:30h si la prueba es a las 9h</div>
-          <div style="font-size:12px;color:#334155;line-height:1.6;">
-            3 tortitas de arroz + mermelada <span style="color:#64748b;">(~28 g)</span><br>
-            o 1 plátano maduro <span style="color:#64748b;">(~27 g)</span><br>
-            <span style="font-size:11px;color:#94a3b8;">Comer justo antes del calentamiento. Probar en martes de series antes de usarlo en prueba oficial.</span>
-          </div>
-        </div>
-
-        <div style="border-left:3px solid #16a34a;padding-left:10px;">
-          <div style="font-size:10px;font-weight:700;color:#15803d;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">0–30 min post · ~65 g CHO + ~20 g PRO</div>
-          <div style="font-size:12px;color:#334155;line-height:1.6;">
-            1 plátano + 125 g yogur de soja <span style="color:#64748b;">(rápido, en mochila)</span><br>
-            Luego almuerzo completo 45–60 min después.<br>
-            <span style="font-size:11px;color:#94a3b8;">Ventana crítica para reponer glucógeno y señalización anabólica.</span>
-          </div>
-        </div>
-
-        <div style="border-left:3px solid #dbeafe;padding-left:10px;background:#f0f9ff;border-radius:4px;padding:8px 10px;">
-          <div style="font-size:10px;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">🆕 Estrategia C — Pan blanco + mermelada + zumo · ⏱ 2–3h antes</div>
-          <div style="font-size:12px;color:#334155;line-height:1.6;">
-            2 rebanadas de pan blanco <span style="color:#64748b;">(~30 g CHO)</span><br>
-            + 2 cdas. mermelada <span style="color:#64748b;">(~15 g CHO)</span><br>
-            + 200 ml zumo de naranja natural <span style="color:#64748b;">(~20 g CHO)</span> = <strong>~65 g CHO</strong><br>
-            <span style="font-size:11px;color:#94a3b8;">Alternativa a la Estrategia A. Muy accesible en cualquier bar. Sin fibra, sin grasa. Probar en martes.</span>
-          </div>
-        </div>
-
-        <div style="border-left:3px solid #dbeafe;padding-left:10px;background:#f0f9ff;border-radius:4px;padding:8px 10px;">
-          <div style="font-size:10px;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">🆕 Estrategia D — Plátano + gel de carbohidratos · ⏱ 30–45 min antes</div>
-          <div style="font-size:12px;color:#334155;line-height:1.6;">
-            1 plátano maduro <span style="color:#64748b;">(~25 g CHO)</span> — 45 min antes<br>
-            + 1 gel de carbohidratos <span style="color:#64748b;">(~22–28 g CHO)</span> — 15–20 min antes = <strong>~50 g CHO</strong><br>
-            <span style="font-size:11px;color:#94a3b8;">Tomar el gel con agua (150–200 ml), nunca en seco. Si el gel se toma demasiado cerca (&lt;15 min) puede generar un pico-bajada de glucosa — probar el timing exacto en martes de series.</span>
-          </div>
-        </div>
-
-      </div>
+  <!-- Sección colapsable: Estrategia nutricional -->
+  <div class="pn-collapse" id="estrategiaCollapse">
+    <div class="pn-collapse-header" onclick="document.getElementById('estrategiaCollapse').classList.toggle('open')">
+      <div class="pn-collapse-title">&#128197; Estrategia nutricional &#8212; Semana de pruebas</div>
+      <span class="pn-collapse-arrow">&#9658;</span>
     </div>
+    <div class="pn-collapse-body">
 
-    <!-- ── PRUEBA 100m NATACIÓN ── -->
-    <div style="border:1px solid #a7f3d0;border-radius:12px;overflow:hidden;">
-      <div style="background:#065f46;padding:0.85rem 1.25rem;">
-        <div style="font-size:13px;font-weight:700;color:#fff;letter-spacing:0.02em;">🏊 Prueba 100m Natación</div>
-        <div style="font-size:11px;color:#6ee7b7;margin-top:3px;">~50–90 seg · >95% VO₂máx · Fosfocreatina + glucolítico · Practicar: miércoles y sábado</div>
+      <!-- Intro -->
+      <div style="padding:1rem 1.25rem;background:#f0f7ff;border-bottom:1px solid #e0eaf8;">
+        <div style="font-size:12px;font-weight:700;color:#1e3a5f;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">&#128161; Principio rector</div>
+        <div style="font-size:13px;color:#334155;line-height:1.65;">Las pruebas son <strong>anaer&#243;bicas de corta duraci&#243;n</strong> (100m nado &#8776;60s, 60m sprint &#8776;8s, press banca &#8776;2&#8211;3 min, cuerda &#8776;15&#8211;45s) &#8212; todas dependen del sistema fosfocreatina + glucol&#237;tico. El motor de rendimiento son los <strong>dep&#243;sitos de gluc&#243;geno</strong> muscular y hep&#225;tico. La estrategia es <strong>cargarlos al m&#225;ximo</strong> antes de cada prueba y <strong>mantenerlos llenos</strong> entre pruebas. La prote&#237;na llega como consecuencia de la selecci&#243;n de alimentos &#8212; no hay que forzarla.</div>
       </div>
-      <div style="padding:1rem 1.25rem;background:#fff;display:flex;flex-direction:column;gap:10px;">
 
-        <div style="border-left:3px solid #10b981;padding-left:10px;">
-          <div style="font-size:10px;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">2–3h antes · ~70–100 g CHO · ⏱ Ej. 11:00–12:00h si la prueba/series son a las 14h</div>
-          <div style="font-size:12px;color:#334155;line-height:1.6;">
-            <strong>Sáb (series 14h):</strong> pan blanco + mermelada + 1 plátano <span style="color:#64748b;">(~75 g CHO)</span><br>
-            <span style="font-size:11px;color:#94a3b8;">Sustituye bowl yogur+granola actual — sin fibra pre-natación.</span><br>
-            <strong>Mié (natación 19h):</strong> comida 14h con arroz blanco <span style="color:#64748b;">(4–5h margen)</span><br>
-            <span style="font-size:11px;color:#94a3b8;">Solo cambiar arroz integral → blanco en días de práctica GI.</span>
-          </div>
+      <!-- FASE 1 -->
+      <div class="pn-fase-block" style="border-bottom:1px solid #e8edf2;">
+        <div class="pn-fase-title">&#128200; Fase 1 &#8212; Carga de gluc&#243;geno (Lu 21 &#8211; Mi&#233; 23 sept)</div>
+        <div class="pn-fase-desc"><strong>CHO objetivo: 7&#8211;8 g/kg/d&#237;a &#8776; 490&#8211;560 g CHO/d&#237;a</strong> (Victor 69,2 kg). Aumentar la cantidad de carbohidratos respecto a la semana habitual. Se producen cambios m&#237;nimos en el entrenamiento &#8212; nataci&#243;n suave el lunes, carrera suave el mi&#233;rcoles, movilidad el martes &#8212; para no vaciar los dep&#243;sitos que estamos llenando.</div>
+        <div class="pn-fase-items">
+          <span class="pn-fase-item">&#127809; Arroz BLANCO en comidas (m&#225;s CHO, menos fibra)</span>
+          <span class="pn-fase-item">&#127820; 2 pl&#225;tanos maduros en almuerzo</span>
+          <span class="pn-fase-item">&#127838; Pasta blanca en cenas</span>
+          <span class="pn-fase-item">&#127861; Miel o mermelada con yogur</span>
+          <span class="pn-fase-item">&#129380; Zumo de naranja 250 ml en desayuno</span>
         </div>
-
-        <div style="border-left:3px solid #6ee7b7;padding-left:10px;">
-          <div style="font-size:10px;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">15–20 min antes · ~25–30 g CHO · ⏱ Ej. 13:40–13:45h si la prueba es a las 14h</div>
-          <div style="font-size:12px;color:#334155;line-height:1.6;">
-            ½ plátano maduro o 2 tortitas arroz + mermelada<br>
-            + creatina 5 g con agua <span style="color:#64748b;">(especialmente relevante aquí)</span><br>
-            <span style="font-size:11px;color:#94a3b8;">Solo si hay calentamiento largo (+20 min en el agua).</span>
-          </div>
-        </div>
-
-        <div style="border-left:3px solid #16a34a;padding-left:10px;">
-          <div style="font-size:10px;font-weight:700;color:#15803d;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">0–30 min post · ~60–70 g CHO + ~20 g PRO</div>
-          <div style="font-size:12px;color:#334155;line-height:1.6;">
-            <strong>Sáb:</strong> 1 plátano + yogur de soja → luego comida libre post-natación.<br>
-            <strong>Mié:</strong> adelantar la cena a 30–45 min post-entreno.<br>
-            <span style="font-size:11px;color:#94a3b8;">Ventana clave aunque el esfuerzo sea corto — el calentamiento suma glucógeno consumido.</span>
-          </div>
-        </div>
-
-        <div style="border-left:3px solid #a7f3d0;padding-left:10px;background:#f0fdf9;border-radius:4px;padding:8px 10px;">
-          <div style="font-size:10px;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">🆕 Estrategia C — Pan blanco + mermelada + zumo · ⏱ 2–3h antes (ej. 11h para series 14h)</div>
-          <div style="font-size:12px;color:#334155;line-height:1.6;">
-            2 rebanadas pan blanco + 2 cdas. mermelada + 200 ml zumo naranja = <strong>~65 g CHO</strong><br>
-            <span style="font-size:11px;color:#94a3b8;">Sustituye el bowl con granola del sábado. Sin fibra ni grasa pre-natación. Probar en sábado de series antes de usarlo en prueba oficial.</span>
-          </div>
-        </div>
-
-        <div style="border-left:3px solid #a7f3d0;padding-left:10px;background:#f0fdf9;border-radius:4px;padding:8px 10px;">
-          <div style="font-size:10px;font-weight:700;color:#065f46;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">🆕 Estrategia D — Plátano + gel de carbohidratos · ⏱ 30–45 min antes (ej. 13:15–13:30h)</div>
-          <div style="font-size:12px;color:#334155;line-height:1.6;">
-            1 plátano maduro — 45 min antes<br>
-            + 1 gel (~22–28 g CHO) con agua — 15–20 min antes = <strong>~50 g CHO</strong><br>
-            <span style="font-size:11px;color:#94a3b8;">Tomar el gel con 150–200 ml de agua. Si hay calentamiento largo en el agua (+20 min), el gel es especialmente útil. Probar en sábado de series antes de la prueba oficial.</span>
-          </div>
-        </div>
-
+        <div class="pn-fase-note">Reducir ligeramente las grasas (sin frutos secos extra, menos AOVE) para dejar espacio calor&#237;co a los CHO extra. No hay que comer m&#225;s en volumen &#8212; hay que cambiar las fuentes: menos grasa, m&#225;s almid&#243;n/az&#250;cares simples. La cena del mi&#233;rcoles ya es <strong>noche previa a la nataci&#243;n del jueves</strong>.</div>
       </div>
-    </div>
 
-  </div>
+      <!-- FASE 2 -->
+      <div class="pn-fase-block" style="border-bottom:1px solid #e8edf2;">
+        <div class="pn-fase-title">&#128202; Fase 2 &#8212; Mantenimiento entre pruebas (Vie 25 sept en adelante)</div>
+        <div class="pn-fase-desc"><strong>CHO objetivo: 6&#8211;7 g/kg/d&#237;a &#8776; 415&#8211;485 g CHO/d&#237;a</strong>. Volver al patr&#243;n habitual del plan &#8212; tostadas, sandwiches, arroz/pasta, legumbres &#8212; sin necesidad de sobrecargar. La clave es <strong>no ayunar, no saltarse comidas, beber bien</strong>. Entre prueba y prueba hay suficiente tiempo para recargar con la dieta normal.</div>
+        <div class="pn-fase-items">
+          <span class="pn-fase-item">&#10003; 3 comidas principales completas</span>
+          <span class="pn-fase-item">&#10003; No saltarse el desayuno nunca</span>
+          <span class="pn-fase-item">&#10003; Hidrataci&#243;n &#8805; 2&#8211;2,5 L/d&#237;a</span>
+          <span class="pn-fase-item">&#10003; Creatina 5 g/d&#237;a (continuar)</span>
+          <span class="pn-fase-item">&#10003; Fruta en cada comida intermedia</span>
+        </div>
+        <div class="pn-fase-note">Los d&#237;as entre pruebas (viernes 26, s&#225;bado 27, etc.) son d&#237;as de recuperaci&#243;n. Sin entrenamiento. El cuerpo recarga solo con las comidas normales del plan.</div>
+      </div>
 
-  <!-- Fuentes de CHO -->
-  <div style="margin-top:12px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:0.85rem 1.25rem;">
-    <div style="font-size:10px;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">⚡ Fuentes de CHO recomendadas por absorción</div>
-    <div style="display:flex;flex-wrap:wrap;gap:6px;">
-      <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">🍚 Arroz blanco</span>
-      <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">🍌 Plátano maduro</span>
-      <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">🍞 Pan blanco / baguette</span>
-      <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">🍓 Mermelada sin azúcar añadida</span>
-      <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">🫓 Tortitas de arroz</span>
-      <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">🟡 Gel de carbohidratos</span>
-      <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">💧 Bebida isotónica</span>
-      <span style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:3px 10px;font-size:11px;color:#9ca3af;text-decoration:line-through;">Avena (fibra)</span>
-      <span style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:3px 10px;font-size:11px;color:#9ca3af;text-decoration:line-through;">Arroz integral (fibra)</span>
-      <span style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:3px 10px;font-size:11px;color:#9ca3af;text-decoration:line-through;">Granola (fibra + grasa)</span>
-    </div>
-  </div>
+      <!-- NOCHE PREVIA -->
+      <div class="pn-fase-block" style="border-bottom:1px solid #e8edf2;">
+        <div class="pn-fase-title">&#127761; Noche previa a cada prueba (protocolo est&#225;ndar)</div>
+        <div class="pn-fase-desc">Aplicar <strong>siempre</strong> la noche anterior a cualquier prueba, independientemente del d&#237;a de la semana.</div>
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.75rem 1rem;margin-bottom:0.5rem;">
+          <div style="font-size:12px;font-weight:600;color:#1e3a5f;margin-bottom:6px;">Cena &#8212; Antes de las 20:30h</div>
+          <div style="font-size:12px;color:#334155;line-height:1.7;">
+            &#127809; 120&#8211;150 g de <strong>arroz blanco</strong> cocido (no integral)<br>
+            &#129360; 150 g de <strong>prote&#237;na magra</strong>: pollo a la plancha o sardinas en lata escurridas<br>
+            &#129382; <strong>Verdura cocida</strong>: jud&#237;as verdes, espinacas o zanahoria (sin cruda ni fibra extra)<br>
+            &#10060; SIN: alimentos nuevos nunca probados, l&#225;cteos, especias fuertes, grasa extra, alcohol
+          </div>
+        </div>
+        <div class="pn-fase-note">Hora de acostarse antes de las 23:00h. Preparar la ropa, el equipaje y la alimentaci&#243;n de la ma&#241;ana con antelaci&#243;n. No improvisar en la noche previa.</div>
+      </div>
+
+      <!-- MA&#209;ANA PRUEBA -->
+      <div class="pn-fase-block" style="border-bottom:1px solid #e8edf2;">
+        <div class="pn-fase-title">&#9728;&#65039; Ma&#241;ana de cada prueba (08:00h &#8594; despertar 04:45h)</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:0.6rem;">
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:0.75rem 1rem;">
+            <div style="font-size:11px;font-weight:700;color:#065f46;margin-bottom:6px;">&#9200;&#65039; TIMING</div>
+            <div style="font-size:12px;color:#334155;line-height:1.8;">
+              04:45h &#8212; Despertar<br>
+              05:00&#8211;05:30h &#8212; Desayuno<br>
+              07:15h &#8212; Top-up CHO (opcional)<br>
+              07:15h &#8212; Cafe&#237;na (si se usa)<br>
+              07:45h &#8212; Calentamiento<br>
+              08:00h &#8212; <strong>PRUEBA</strong>
+            </div>
+          </div>
+          <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:0.75rem 1rem;">
+            <div style="font-size:11px;font-weight:700;color:#92400e;margin-bottom:6px;">&#127809; DESAYUNO 05:00&#8211;05:30h</div>
+            <div style="font-size:12px;color:#334155;line-height:1.65;">
+              <strong>Opci&#243;n A:</strong> Arroz blanco + pl&#225;tano + mermelada<br>
+              <strong>Opci&#243;n B:</strong> Pan blanco + mermelada + zumo<br>
+              <strong>Opci&#243;n C:</strong> Tortitas arroz + mermelada + pl&#225;tano<br>
+              <span style="color:#92400e;font-size:11px;">Creatina 5g con el desayuno</span>
+            </div>
+          </div>
+        </div>
+        <div class="pn-fase-note">&#128683; SIN: avena, arroz integral, frutos secos, yogur, l&#225;cteos, fibra extra. Solo alimentos <strong>ya probados en entrenamiento</strong>. No estrenar ninguna estrategia el d&#237;a de la prueba. La hidrataci&#243;n desde que se despierta: 250&#8211;500 ml agua (no hielo, temperatura ambiente o ligeramente fr&#237;a).</div>
+      </div>
+
+      <!-- ENTRE PRUEBAS -->
+      <div class="pn-fase-block" style="border-bottom:1px solid #e8edf2;">
+        <div class="pn-fase-title">&#9889; Entre pruebas &#8212; Recuperaci&#243;n y recarga</div>
+        <div class="pn-fase-desc">Recuperaci&#243;n inmediata post-prueba: aunque la prueba sea muy corta (sprint de 8 segundos o nado de 60s), el calentamiento previo consume gluc&#243;geno. Reponer en los primeros 30&#8211;45 min.</div>
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:0.75rem 1rem;margin-bottom:0.6rem;">
+          <div style="font-size:12px;font-weight:600;color:#1e3a5f;margin-bottom:6px;">Recuperaci&#243;n inmediata (0&#8211;30 min post)</div>
+          <div style="font-size:12px;color:#334155;line-height:1.7;">
+            &#127820; 1 pl&#225;tano maduro (~25 g CHO)<br>
+            &#129360; 125 g yogur de soja (~8 g PRO)<br>
+            &#128167; 500 ml agua o bebida isot&#243;nica<br>
+            <span style="color:#64748b;font-size:11px;">En mochila. Comer en cuanto se acabe la prueba &#8212; no esperar.</span>
+          </div>
+        </div>
+        <div class="pn-fase-note">Luego: comida completa en casa 45&#8211;60 min despu&#233;s. CHO 6&#8211;7 g/kg durante el d&#237;a. Si hay dos pruebas en d&#237;as consecutivos (Cuerda lu&#8211;ma, 3000m ju&#8211;vi), el d&#237;a entre medias tiene que ser de recarga activa con el plan normal.</div>
+      </div>
+
+      <!-- SUPLEMENTACIÓN SEMANA PRUEBAS -->
+      <div class="pn-fase-block">
+        <div class="pn-fase-title">&#128138; Suplementaci&#243;n en d&#237;as de prueba</div>
+        <div style="font-size:13px;color:#444;line-height:1.7;">
+          <strong>Creatina 5 g</strong> &#8212; con el desayuno (todos los d&#237;as).<br>
+          <strong>Cafe&#237;na 200 mg</strong> &#8212; a las 07:15h el d&#237;a de prueba (30&#8211;45 min antes de las 08:00h).<br>
+          <strong>L-Citrulina 6 g</strong> &#8212; con el desayuno pre-prueba (45&#8211;60 min antes). M&#225;s relevante en press banca y cuerda.<br>
+          <span style="font-size:11px;color:#888;">La cafe&#237;na est&#225; en lista de monitorizaci&#243;n WADA (no prohibida) &#8212; 200 mg muy por debajo del umbral antidopaje.</span>
+        </div>
+      </div>
+
+      <!-- Fuentes de CHO -->
+      <div style="margin:0 1.25rem 1rem;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:0.85rem 1.25rem;">
+        <div style="font-size:10px;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">&#9889; Fuentes de CHO recomendadas por absorci&#243;n</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">&#127809; Arroz blanco</span>
+          <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">&#127820; Pl&#225;tano maduro</span>
+          <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">&#129374; Pan blanco / baguette</span>
+          <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">&#127827; Mermelada sin az&#250;car a&#241;adida</span>
+          <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">&#129395; Tortitas de arroz</span>
+          <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">&#127997; Gel de carbohidratos</span>
+          <span style="background:#fff;border:1px solid #fcd34d;border-radius:6px;padding:3px 10px;font-size:11px;color:#78350f;">&#128167; Bebida isot&#243;nica</span>
+          <span style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:3px 10px;font-size:11px;color:#9ca3af;text-decoration:line-through;">Avena (fibra)</span>
+          <span style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:3px 10px;font-size:11px;color:#9ca3af;text-decoration:line-through;">Arroz integral (fibra)</span>
+          <span style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:3px 10px;font-size:11px;color:#9ca3af;text-decoration:line-through;">Granola (fibra + grasa)</span>
+        </div>
+      </div>
+
+
+
+    </div><!-- /pn-collapse-body -->
+  </div><!-- /pn-collapse -->
 
 </div>
 
@@ -775,194 +834,206 @@
 <script>
 const days = [
   {
-    short: "Lun", full: "Lunes",
-    sport: "🏋️ Press de banca", sportClass: "fuerza",
-    sportBanner: "Fuerza tren superior — press banca 16:30h. Hidratos altos en comida pre-entreno. ~2.750 kcal · ~112 g proteína.",
+    short: "Lu21", full: "Lunes 21 sept",
+    sport: "🏊 Natación suave (tapering)", sportClass: "crossfit",
+    sportBanner: "Natación técnica suave — Última semana de carga de glucógeno. FASE 1: CHO 7–8 g/kg/día (~490–560 g CHO). Llegada del glucógeno al máximo antes de las pruebas del jueves.",
     suppl: null, libre: false,
     meals: [
       { type: "D", time: "7:00–8:30",
-        name: "Tostadas con tomate triturado, AOVE y sal + zumo + cafe", tags: [],
-        desc: "2 tostadas de pan integral con tomate triturado extendido + 1 cda. de AOVE + sal al gusto.\n200 ml de zumo de naranja natural.\nCafe (solo o con bebida vegetal sin azucar).",
-        note: "El zumo de naranja aporta CHO de absorcion rapida — ideal para el dia de fuerza (press banca 16:30h). Preparacion en 3-4 min." },
+        name: "Tostadas con tomate triturado, AOVE y sal + zumo + café", tags: [],
+        desc: "2–3 tostadas de pan integral con tomate triturado extendido + 1 cda. de AOVE + sal al gusto.\n250 ml de zumo de naranja natural (aumentamos CHO).\nCafé (solo o con bebida vegetal sin azúcar).",
+        note: "⚡ Fase 1 — Carga glucógeno: una tostada más que la semana habitual. El zumo grande da CHO rápidos sin fibra. Objetivo: máxima saturación de depósitos antes del jueves." },
       { type: "A", time: "10:30–11:00",
-        name: "Sandwich integral de hummus con aguacate y tomate + fruta", tags: [],
-        desc: "2 rebanadas de pan integral con 3 cdas. de hummus + 1/2 aguacate en laminas + tomate en rodajas + hojas de rucula.\n1 pieza de fruta de temporada.",
-        note: "Sin coccion. Montar en 2 min y envolver en papel. El hummus ya aporta proteina vegetal (garbanzo) + grasa saludable del aguacate." },
+        name: "Sandwich integral de hummus con aguacate y tomate + plátano + fruta", tags: [],
+        desc: "2 rebanadas de pan integral con 3 cdas. de hummus + 1/2 aguacate en láminas + tomate en rodajas + hojas de rúcula.\n2 plátanos maduros (clave para carga de CHO).",
+        note: "⚡ Fase 1: los plátanos dobles son intencionados. Glucosa + fructosa = recargan tanto el glucógeno muscular como el hepático. Sin ansiedad si hay mucha fruta hoy." },
       { type: "C", time: "13:00–14:00",
-        name: "Arroz integral con pollo a la plancha y verduras", tags: ["batch"],
-        desc: "120 g de arroz integral en seco (cocido del batch) + 175 g de pollo a la plancha troceado + zanahoria rallada + pepino + tomate cherry. Alino al gusto con oregano y AOVE.\n125 g de yogur de soja o kefir con 1 cdita. de miel.",
-        note: "Comida pre-press banca (16:30h): hidratos elevados para soportar la sesion de fuerza. El arroz del batch se calienta en 2 min en microondas." },
+        name: "Arroz blanco con pollo a la plancha y verduras cocidas", tags: [],
+        desc: "150–180 g de arroz BLANCO en seco (cocido) + 175 g de pollo a la plancha troceado + zanahoria cocida + judias verdes cocidas. Alino con oregano y AOVE.\n125 g de yogur de soja con 1 cda. de miel.",
+        note: "⚡ Fase 1 — Arroz blanco (no integral): mayor índice glucémico, menor fibra = reposición de glucógeno más rápida. Las verduras COCIDAS reducen el volumen de fibra sin eliminar los micronutrientes." },
       { type: "Ce", time: "20:00–21:00",
-        name: "Ensalada de garbanzos, huevo y patatas", tags: [],
-        desc: "125 g de garbanzos (de bote, escurridos) + 1 huevo duro + 150 g de patatas pequenas cocidas + espinacas frescas. Alino con AOVE y especias al gusto.\nRC: 1 yogur griego ligero con 1 onza de chocolate >85%.",
-        note: "Cena post-press banca: proteina + carbohidrato moderado para recuperacion muscular sin exceso calorico nocturno." }
+        name: "Pasta blanca con tomate y garbanzos", tags: [],
+        desc: "150 g de pasta blanca en seco (cocida) + 1/2 bote de garbanzos (escurridos) + tomate triturado + ajo + AOVE + oregano.\n125 g de yogur de soja con 1 cda. de miel.",
+        note: "⚡ Fase 1: cena cargada en CHO. La pasta blanca llena depósitos rápido. Los garbanzos aportan proteína sin añadir grasa. Sin ensalada grande de fibra esta noche." }
     ],
     batchCooking: null
   },
   {
-    short: "Mar", full: "Martes",
-    sport: "🏃 Series en pista", sportClass: "run",
-    sportBanner: "Series en pista 9h — hidratos altos en desayuno pre-series. Proteina elevada para recuperacion. ~2.750 kcal.",
-    suppl: null, libre: false,
-    meals: [
-      { type: "D", time: "6:30–7:00",
-        name: "Tostadas con tomate triturado, AOVE y sal + zumo + cafe (pre-series 9h)", tags: [],
-        desc: "2 tostadas de pan integral con tomate triturado extendido + 1 cda. de AOVE + sal al gusto.\n200 ml de zumo de naranja natural.\nCafe (solo o con bebida vegetal sin azucar).",
-        note: "Tomar a las 6:30h — el AOVE ralentiza ligeramente el vaciado gastrico, por lo que necesita 2h30 de margen antes de las series de las 9h. El zumo de naranja aporta CHO rapidos ideales para el esfuerzo anaerobico." },
-      { type: "A", time: "11:30–12:00",
-        name: "Sandwich integral de hummus y verduras + fruta", tags: [],
-        desc: "2 rebanadas de pan integral con 3 cdas. de hummus + pimiento asado + tomate en rodajas + hojas de espinaca + 1/2 aguacate.\n1 pieza de fruta de temporada + 125 g de yogur de soja o kefir.",
-        note: "Almuerzo post-series: proteina vegetal (hummus) + hidratos para reponer glucogeno. Preparar la noche anterior. El yogur va en tarro aparte." },
-      { type: "C", time: "14:00–15:00",
-        name: "Ensalada de cuscus integral con alubias y almendras", tags: [],
-        desc: "120 g de cuscus integral en seco (hidratar 5 min) + 150 g de alubias rojas (de bote, escurridas) + canonigos + pimiento rojo + almendras (15 g) + 1 huevo escalfado o duro. Alino al gusto con oregano y AOVE.",
-        note: "Comida completa de recuperacion post-series: cereal integral + legumbre + grasa saludable." },
-      { type: "Ce", time: "20:30–21:30",
-        name: "Quesadillas con pollo", tags: [],
-        desc: "Quesadillas con pollo (ver recetas, 1 racion).\nRC: 1 yogur griego ligero con 1 onza de chocolate >85%.",
-        note: "Cena ligera y rapida. Sustituible por tortilla integral + pollo + pimiento + cebolla salteados." }
-    ],
-    batchCooking: null
-  },
-  {
-    short: "Mie", full: "Miercoles",
-    sport: "🏊 Natacion + 🏃 Zona 2", sportClass: "crossfit",
-    sportBanner: "Natacion tecnica + carrera zona 2 (30 min) a las 19h. Doble sesion vespertina — comida pre-entreno clave. ~2.750 kcal.",
+    short: "Mar", full: "Martes 22 sept",
+    sport: "🚶 Movilidad y caminata", sportClass: "rest",
+    sportBanner: "Día de movilidad y caminata activa. Sin entrenamiento intenso. FASE 1 (carga CHO): los depósitos siguen llenándose con la dieta alta en CHO. Cuerpo descansado, energía alta.",
     suppl: null, libre: false,
     meals: [
       { type: "D", time: "7:00–8:30",
-        name: "Tostadas con tomate triturado, AOVE y sal + zumo + cafe", tags: [],
-        desc: "2 tostadas de pan integral con tomate triturado extendido + 1 cda. de AOVE + sal al gusto.\n200 ml de zumo de naranja natural.\nCafe (solo o con bebida vegetal sin azucar).",
-        note: "La sesion vespertina es a las 19h — hay margen mas que suficiente desde el desayuno. El zumo suma CHO rapidos sin fibra." },
+        name: "Tostadas con tomate triturado, AOVE y sal + zumo + café", tags: [],
+        desc: "2–3 tostadas de pan integral con tomate triturado extendido + 1 cda. de AOVE + sal al gusto.\n250 ml de zumo de naranja natural.\nCafé (solo o con bebida vegetal sin azúcar).",
+        note: "⚡ Fase 1 continua: mismo patrón de ayer. Sin entrenamiento — el cuerpo aprovecha el día de reposo para saturar depósitos sin ningún consumo energético extra." },
       { type: "A", time: "10:30–11:00",
-        name: "Sandwich integral de hummus con salmon y pepino + fruta", tags: [],
-        desc: "2 rebanadas de pan integral con 2 cdas. de hummus + 60 g de salmon ahumado + rodajas de pepino + semillas de chia + rucula.\n1 pieza de fruta de temporada.",
-        note: "Montar en 2 min. El salmon aporta omega-3 clave para la sesion vespertina de natacion + zona 2. Sin coccion." },
-      { type: "C", time: "14:00–15:00",
-        name: "Arroz integral con sardinas en lata", tags: [],
-        desc: "120 g de arroz integral en seco (cocido del batch) + 1 lata de sardinas en aceite de oliva (escurridas, 120 g) + tomate cherry + pepino + pistachos (10 g) + canonigos + 1/2 aguacate + 1 cda. de semillas. Alino con oregano y AOVE.\n125 g de yogur de soja o kefir.",
-        note: "Comida pre-sesion vespertina (19h): hidratos elevados + omega-3 de sardinas. Comer 4-5h antes para digestion completa." },
-      { type: "Ce", time: "21:00–22:00",
-        name: "Seitan a la pimienta con arroz integral", tags: [],
-        desc: "Seitan / Solomillo a la pimienta (ver recetas) + 100 g de arroz integral en seco (cocido).\nEnsalada verde al gusto con 1 cda. de AOVE.",
-        note: "Cena post-entreno: proteina vegetal completa (seitan) + carbohidrato para recuperacion. Si no hay seitan, sustituir por 150 g de tofu firme con tamari." }
-    ],
-    batchCooking: null
-  },
-  {
-    short: "Jue", full: "Jueves",
-    sport: "🪢 Cuerda y tracciones", sportClass: "fuerza",
-    sportBanner: "Fuerza funcional — cuerda y tracciones 16:30h. Hidratos en comida pre-entreno, proteina muy alta. ~2.750 kcal.",
-    suppl: null, libre: false,
-    meals: [
-      { type: "D", time: "7:00–8:30",
-        name: "Tostadas con tomate triturado, AOVE y sal + zumo + cafe", tags: [],
-        desc: "2 tostadas de pan integral con tomate triturado extendido + 1 cda. de AOVE + sal al gusto.\n200 ml de zumo de naranja natural.\nCafe (solo o con bebida vegetal sin azucar).",
-        note: "Misma base que el resto de la semana. Entreno de cuerda y tracciones a las 16:30h — mas de 8h de margen desde el desayuno. Sin problema digestivo." },
-      { type: "A", time: "10:30–11:00",
-        name: "Sandwich integral de hummus con edamame y zanahoria + fruta", tags: [],
-        desc: "2 rebanadas de pan integral con 3 cdas. de hummus + 80 g de edamame cocido o descongelado + zanahoria rallada + pepino en rodajas.\n125 g de yogur de soja o kefir + 1 fruta de temporada.",
-        note: "Sin coccion si el edamame es congelado (descongelar en agua caliente 3 min). Combinacion de hummus + edamame = proteina vegetal completa muy alta." },
+        name: "Sandwich integral con hummus y verduras + 2 plátanos + fruta", tags: [],
+        desc: "2 rebanadas de pan integral con 3 cdas. de hummus + pimiento asado + tomate en rodajas + hojas de espinaca.\n2 plátanos maduros.",
+        note: "⚡ Fase 1: plátanos dobles de nuevo. El día de reposo es ideal para que la ingesta alta en CHO vaya directamente a los depósitos sin consumirse en entrenamiento." },
       { type: "C", time: "13:00–14:00",
-        name: "Bolonesa vegana con edamame", tags: [],
-        desc: "Bolonesa vegana (ver recetas) con 150 g de edamame cocido o descongelado (anadir en los ultimos 5 min de coccion).\n1 fruta al gusto.",
-        note: "Comida pre-entreno de cuerda/tracciones (16:30h): legumbre + edamame = proteina completa. El edamame no absorbe la salsa — anadirlo al final." },
+        name: "Arroz blanco con sardinas en lata y verduras cocidas", tags: [],
+        desc: "150–180 g de arroz BLANCO en seco (cocido) + 1 lata de sardinas en aceite de oliva (escurridas, 120 g) + tomate cherry + pepino + 1/2 aguacate.\n125 g de yogur de soja o kéfir.",
+        note: "⚡ Fase 1: arroz blanco más abundante que lo habitual. Las sardinas aportan omega-3 antiinflamatorio sin interferir en la carga de CHO. Grasa ligera — sin frutos secos extra hoy." },
       { type: "Ce", time: "20:00–21:00",
-        name: "Curry de garbanzos con patatas", tags: [],
-        desc: "Curry de garbanzos (ver recetas) + 200 g de patatas incorporadas al guiso.\nRC: 1 yogur griego ligero con 1 onza de chocolate >85%.",
-        note: "Cena post-cuerda: legumbre completa + fecula para recuperacion. Las especias del curry (curcuma, jengibre) tienen efecto antiinflamatorio." }
+        name: "Pasta blanca con edamame y salsa de tomate", tags: [],
+        desc: "150 g de pasta blanca en seco (cocida) + 150 g de edamame cocido o descongelado + tomate triturado + ajo + AOVE + oregano.\n1 plátano maduro de postre.",
+        note: "⚡ Fase 1: última cena de carga antes de la carrera suave del miércoles. Edamame + pasta = CHO + proteína completa. El plátano de postre suma CHO a la reserva nocturna." }
     ],
     batchCooking: null
   },
   {
-    short: "Vie", full: "Viernes",
-    sport: "🏃 Carrera Zona 2", sportClass: "run",
-    sportBanner: "Carrera zona 2, 45 min, 6:30h. Desayuno ligero pre-carrera, proteina alta en comida. ~2.750 kcal.",
+    short: "Mie", full: "Miércoles 23 sept",
+    sport: "🏃 Carrera suave (tapering)", sportClass: "run",
+    sportBanner: "Última sesión de carga: carrera suave ~30–40 min (máximo zona 2). TRANSICIÓN Fase 1 → Fase 2: desde hoy CHO 6–7 g/kg/día. El jueves es día de descanso y noche previa — la prueba de natación es el viernes.",
     suppl: null, libre: false,
     meals: [
-      { type: "D", time: "6:00–6:15",
-        name: "Overnight Oats pre-carrera — salida 6:30h", tags: [],
-        desc: "60 g avena + 200 ml bebida vegetal + 125 g yogur de soja + 1 cda. semillas chia + 1 platano pequeno en rodajas. Preparar el jueves por la noche.",
-        note: "Tomar directamente del tarro 15-20 min antes de salir. Sin frutos secos ni grasas extra antes de correr. El platano aporta el glucogeno justo para 45 min de zona 2." },
-      { type: "A", time: "8:30–9:00",
-        name: "Tostada con salmon ahumado, queso, aguacate y semillas de chia + fruta", tags: [],
-        desc: "1 tostada de pan integral con 80 g de salmon ahumado + 2 cdas. de queso fresco batido + 1/2 aguacate en laminas + semillas de chia.\n1 pieza de fruta de temporada.",
-        note: "Se hace fuera de casa post-carrera (6:30h). Pedir en cafeteria o bar: tostada con salmon + aguacate. Fruta llevada de casa. Sin preparacion previa." },
+      { type: "D", time: "7:00–8:30",
+        name: "Tostadas con tomate triturado, AOVE y sal + zumo + café (pre-carrera suave)", tags: [],
+        desc: "2 tostadas de pan integral con tomate triturado extendido + 1 cda. de AOVE + sal al gusto.\n200 ml de zumo de naranja natural.\nCafé (solo o con bebida vegetal sin azúcar).",
+        note: "Tomar antes de la carrera (si es por la mañana). La carrera suave no vaciará los depósitos — es tan solo mantenimiento motor y técnica. El AOVE no es problema con al menos 1h30 de margen." },
+      { type: "A", time: "10:30–11:00",
+        name: "Sandwich integral con hummus y salmon + fruta", tags: [],
+        desc: "2 rebanadas de pan integral con 2 cdas. de hummus + 60 g de salmón ahumado + rodajas de pepino + semillas de chía + rúcula.\n1–2 plátanos maduros.",
+        note: "Post-carrera suave: recuperación mínima + carga de CHO continúa. El salmón suma omega-3 y proteína sin añadir carga digestiva." },
       { type: "C", time: "14:00–15:00",
-        name: "Ensalada de lentejas con pollo y verduras a la plancha", tags: [],
-        desc: "300 g de lentejas (cocidas, de bote escurridas) + 150 g de pollo a la plancha en tiras + pimiento rojo, cebolla morada, calabacin y champinones a la plancha + picatostes.\n1 platano.",
-        note: "Comida principal del viernes — mayor carga proteica y de carbohidrato. El platano post-comida aporta potasio." },
-      { type: "Ce", time: "20:30–21:30",
-        name: "Verduras a la plancha con tofu y gnocchis", tags: [],
-        desc: "Verduras a la plancha con tofu (o 150 g de pescado blanco) (ver recetas) + 150 g de gnocchis en seco (hervir 3 min).\n1 fruta.",
-        note: "Cena ligera de viernes sin entreno vespertino. Tofu firme a la plancha con tamari como alternativa vegetal al pescado." }
+        name: "Arroz blanco con pollo a la plancha y verduras cocidas", tags: [],
+        desc: "150 g de arroz BLANCO en seco (cocido) + 150 g de pollo a la plancha en tiras + verduras cocidas al vapor (judias verdes, calabacín). Alino con oregano y AOVE.\n125 g de yogur de soja con 1 cda. de miel.",
+        note: "⚡ Transición: aunque bajamos a Fase 2, hoy la comida aún es alta en CHO porque es el último día de entrenamiento. Arroz blanco cocido = depósitos al máximo." },
+      { type: "Ce", time: "20:00–21:00",
+        name: "Cena de carga — Arroz blanco + proteína magra + verdura cocida", tags: [],
+        desc: "120–150 g de arroz BLANCO en seco (cocido) + 150 g de pollo a la plancha o sardinas en lata (escurridas) + judias verdes o espinacas cocidas.\nSin especias fuertes, sin nuevos alimentos, sin grasa extra.",
+        note: "⚡ Cena de carga antes del día de descanso (jueves). Arroz blanco + proteína magra + verdura cocida: misma pauta de noche previa pero sin la presión — la prueba real es el viernes. Dormir bien hoy." }
     ],
     batchCooking: null
   },
   {
-    short: "Sab", full: "Sabado",
-    sport: "🏊 Series de natacion", sportClass: "crossfit",
-    sportBanner: "Series de natacion a las 14h. Desayuno cargado pre-natacion, cena libre. ~2.600 kcal.",
-    suppl: null, libre: true,
-    meals: [
-      { type: "D", time: "9:00–9:30",
-        name: "Tostadas con tomate triturado, AOVE y sal + zumo + cafe (pre-series natacion 14h)", tags: [],
-        desc: "2 tostadas de pan integral con tomate triturado extendido + 1 cda. de AOVE + sal al gusto.\n200 ml de zumo de naranja natural.\nCafe (solo o con bebida vegetal sin azucar).",
-        note: "Tomar a las 9:00-9:30h — 4h de margen antes de las series de natacion de las 14h. Con ese margen el AOVE no supone ningun problema digestivo. El zumo aporta CHO rapidos para el arranque." },
-      { type: "A", time: "11:30–12:00",
-        name: "Bowl de yogur con granola y frutos rojos (pre-natacion)", tags: [],
-        desc: "250 g de kefir o yogur de soja + 40 g de granola o avena + 1 platano en rodajas + 1 punado de frutos rojos.",
-        note: "Snack ligero pre-natacion (2h antes): carbohidratos de absorcion media. Sin grasa ni fibra excesiva." },
-      { type: "C", libre: true, time: "17:00–18:30",
-        name: "Comida post-natacion libre", tags: [],
-        desc: "Come lo que te apetezca. Priorizar proteina + carbohidrato si es posible.",
-        note: "La comida libre post-natacion es herramienta de adherencia. Forma parte del plan." },
-      { type: "Ce", libre: true, time: "20:30–22:00",
-        name: "Cena libre", tags: [],
-        desc: "Come lo que te apetezca. No hay nada que compensar.",
-        note: "La cena libre del sabado es parte del plan. Disfrutarla sin culpa es tan importante como el resto de la semana." }
-    ],
-    batchCooking: null
-  },
-  {
-    short: "Dom", full: "Domingo",
-    sport: "🚶 Descanso activo", sportClass: "rest",
-    sportBanner: "Descanso activo — caminar 1h. Batch cooking semanal. ~2.400 kcal (dia de recuperacion).",
+    short: "Jue", full: "Jueves 24 sept",
+    sport: "🚶 Descanso pre-prueba", sportClass: "rest",
+    sportBanner: "Día de descanso completo. Última noche antes de la prueba de natación (mañana viernes 25). Sin entrenamiento — conservar energía y preparar todo para mañana.",
     suppl: null, libre: false,
     meals: [
-      { type: "D", time: "9:00–10:00",
-        name: "Cafe en ayunas (o tortitas de avena y platano)", tags: [],
-        desc: "Cafe en ayunas.\nOpcional si hay hambre: tortitas de avena y platano — 1 platano maduro + 30 g copos de avena + 2 huevos (o 100 ml bebida soja + 2 cdas. harina garbanzo) + canela. Sarten 1-2 min por lado.",
-        note: "El domingo se puede alargar el ayuno si se hace batch cooking. La caminata de 1h se puede hacer a media manana o por la tarde." },
+      { type: "D", time: "7:00–8:30",
+        name: "Tostadas con tomate triturado, AOVE y sal + zumo + café", tags: [],
+        desc: "2–3 tostadas de pan integral con tomate triturado extendido + 1 cda. de AOVE + sal al gusto.\n200 ml de zumo de naranja natural.\nCafé (solo o con bebida vegetal sin azúcar).",
+        note: "Jueves tranquilo. Desayuno completo y sin prisa. El cuerpo descansa y los depósitos siguen cargados." },
+      { type: "A", time: "10:30–11:00",
+        name: "Sandwich integral con hummus y edamame + plátano + fruta", tags: [],
+        desc: "2 rebanadas de pan integral con 3 cdas. de hummus + 80 g de edamame cocido + zanahoria rallada + pepino en rodajas.\n1 plátano maduro + 1 fruta de temporada.",
+        note: "Almuerzo de carga suave. Edamame suma proteína vegetal completa sin carga digestiva." },
+      { type: "C", time: "13:30–14:30",
+        name: "Arroz blanco con garbanzos y verduras cocidas", tags: [],
+        desc: "130 g de arroz BLANCO en seco (cocido) + 1/2 bote de garbanzos escurridos + judías verdes o espinacas cocidas. Aliño con orégano y AOVE.\n125 g de yogur de soja con 1 cda. de miel.",
+        note: "⚡ Arroz blanco pre-prueba: CHO rápidos y menor fibra para llegar con glucógeno lleno mañana. Garbanzos como proteína vegetal." },
+      { type: "Ce", time: "20:00–20:30h",
+        name: "🌙 NOCHE PREVIA — Arroz blanco + proteína magra + verdura cocida", tags: [],
+        desc: "120–150 g de arroz BLANCO en seco (cocido) + 150 g de pollo a la plancha o sardinas en lata escurridas + judías verdes o espinacas cocidas.\nSin especias fuertes, sin alimentos nuevos, sin grasa extra, sin lácteos.",
+        note: "⚡ NOCHE PREVIA: mañana viernes 25/09 es la PRUEBA DE NATACIÓN a las 08:00h. Cenar antes de las 20:30h, acostarse antes de las 23:00h. Preparar esta noche: ropa, equipaje, desayuno de mañana." }
+    ],
+    batchCooking: null
+  },
+  {
+    short: "Vie", full: "Viernes 25 sept 🏊",
+    sport: "🏊 PRUEBA: Natación 100m", sportClass: "crossfit",
+    sportBanner: "⚡ DÍA DE PRUEBA — Natación 100m · 08:00h · Piscina Nazaret. Despertar 04:45h · Desayuno 05:00–05:30h · CHO rápidos sin fibra ni grasa.",
+    suppl: "⚡ Suplementación hoy:\nCreatina 5 g — con el desayuno.\nCafeína 200 mg — tomar a las 07:15h (30–45 min antes).\nL-Citrulina 6 g — con el desayuno.", libre: false,
+    meals: [
+      { type: "D", time: "05:00–05:30h (despertar 04:45h)",
+        name: "🏊 Desayuno pre-prueba natación 100m — CHO rápidos sin fibra", tags: [],
+        desc: "OPCIÓN A (recomendada): 150–200 g arroz blanco cocido + 1 plátano maduro + 1–2 cdas. mermelada + agua.\nOPCIÓN B: 2 rebanadas pan blanco + 2 cdas. mermelada + 200 ml zumo de naranja + agua.\nOPCIÓN C (solo si se ha probado): 3 tortitas de arroz + mermelada/plátano + gel + agua.\nCreatina 5 g mezclada con agua en este momento.",
+        note: "Timing: 2h30–3h antes de la prueba (08:00h) = desayuno a las 05:00–05:30h. SIN avena, SIN frutos secos, SIN lácteos, SIN fibra extra. Solo alimentos ya probados en entrenamiento. Comer la opción que ya hemos entrenado — no estrenar estrategia el día de prueba." },
+      { type: "A", time: "07:15h (30–45 min antes de prueba)",
+        name: "Top-up CHO (opcional) + cafeína", tags: [],
+        desc: "1/2 plátano o 2 tortitas de arroz con mermelada (~25–30 g CHO).\nCafeína 200 mg si ya está probada en entrenamiento.",
+        note: "Solo si se siente necesario. Con el desayuno a las 05:30h y la prueba a las 08:00h ya hay suficientes CHO en sangre. Este top-up es opcional — mejor omitirlo si hay cualquier duda digestiva." },
+      { type: "C", time: "Inmediatamente post-prueba",
+        name: "Recuperación post-natación", tags: [],
+        desc: "1 plátano + 125 g yogur de soja (en mochila).\nLuego comida completa 45–60 min después.",
+        note: "Ventana crítica post-prueba: reponer CHO + proteína. Aunque sea una prueba corta (50–90 seg), el calentamiento previo suma glucogénolisis. Comer en cuanto se pueda." },
+      { type: "Ce", time: "20:00–21:00",
+        name: "Noche previa al sábado (libre tranquila) — sin restricciones", tags: [],
+        desc: "Come normal y sin presión. El domingo 28 es la siguiente prueba (60m + press banca).\n120–150 g de arroz blanco o pasta + proteína magra + verdura cocida (si se quiere seguir protocolo).",
+        note: "Con 2 días de separación hasta el domingo, el cuerpo recarga solo. No hay que forzar ninguna estrategia esta noche — comer con normalidad y descansar bien." }
+    ],
+    batchCooking: null
+  },
+  {
+    short: "Sab", full: "Sábado 26 sept",
+    sport: "🚶 Recuperación + movilidad", sportClass: "rest",
+    sportBanner: "Día de recuperación tras la prueba de natación. FASE 2 — Mantenimiento CHO 6–7 g/kg. Sin entrenamiento. Reponer glucógeno, descansar músculos, relajar el cuerpo.",
+    suppl: null, libre: false,
+    meals: [
+      { type: "D", time: "7:00–8:30",
+        name: "Tostadas con tomate triturado, AOVE y sal + zumo + café", tags: [],
+        desc: "2 tostadas de pan integral con tomate triturado extendido + 1 cda. de AOVE + sal al gusto.\n200 ml de zumo de naranja natural.\nCafé (solo o con bebida vegetal sin azúcar).",
+        note: "Fase 2 — Mantenimiento. Desayuno normal sin estrés. El cuerpo está recargando desde ayer. Prioridad: descanso e hidratación." },
+      { type: "A", time: "10:30–11:00",
+        name: "Sandwich integral con hummus y verduras + fruta", tags: [],
+        desc: "2 rebanadas de pan integral con 3 cdas. de hummus + pimiento asado + tomate en rodajas + hojas de espinaca + 1/2 aguacate.\n1 plátano + 1 fruta de temporada.",
+        note: "Almuerzo de recuperación. Sin necesidad de forzar volúmenes. El cuerpo gestiona solo la recarga con las comidas normales." },
+      { type: "C", time: "14:00–15:00",
+        name: "Arroz integral con sardinas en lata y ensalada variada", tags: [],
+        desc: "120 g de arroz integral en seco (cocido) + 1 lata de sardinas en aceite de oliva (escurridas, 120 g) + tomate cherry + pepino + pistachos (10 g) + canónigos + 1/2 aguacate + 1 cda. de semillas. Alino con oregáno y AOVE.\n125 g de yogur de soja o kéfir.",
+        note: "De vuelta al arroz integral (Fase 2 no requiere arroz blanco los días sin prueba). Las sardinas dan omega-3 antiinflamatorio ideal para la recuperación muscular." },
+      { type: "Ce", time: "20:00–21:00",
+        name: "Noche previa al sábado (libre) — sin protocolo obligatorio", tags: [],
+        desc: "Come normal. Si quieres seguir protocolo previa: arroz blanco + pollo a la plancha + verdura cocida.\nSin alimentos nuevos ni pesados.",
+        note: "El domingo 28 es prueba de 60m + press banca (08:00h). Hoy no es noche previa directa — hay un día de margen. Comer con tranquilidad, bien hidratado." }
+    ],
+    batchCooking: null
+  },
+  {
+    short: "Dom", full: "Domingo 27 sept",
+    sport: "🚶 Descanso activo (pre-prueba)", sportClass: "rest",
+    sportBanner: "⚡ NOCHE PREVIA A LA PRUEBA — 60m + Press Banca (domingo 28, 08:00h). Caminata o movilidad ligera. CHO altos en comida, protocolo noche previa en cena.",
+    suppl: null, libre: false,
+    meals: [
+      { type: "D", time: "8:00–9:00",
+        name: "Tostadas con tomate triturado, AOVE y sal + zumo + café", tags: [],
+        desc: "2 tostadas de pan integral con tomate triturado extendido + 1 cda. de AOVE + sal al gusto.\n200 ml de zumo de naranja natural.\nCafé (solo o con bebida vegetal sin azúcar).",
+        note: "Sábado tranquilo antes de la prueba de mañana. Sin entrenamiento. Desayuno normal." },
       { type: "A", time: "11:00–12:00",
-        name: "Tostadas con hummus, aguacate y yogur", tags: [],
-        desc: "2 tostadas de pan integral con 2 cdas. de hummus extendido, 1/2 aguacate y tomate en rodajas.\n125 g de yogur de soja o kefir + 1 fruta.",
-        note: "Almuerzo sencillo de domingo para no coincidir con el batch cooking." },
+        name: "Sandwich integral con hummus y edamame + plátano + fruta", tags: [],
+        desc: "2 rebanadas de pan integral con 3 cdas. de hummus + 80 g de edamame cocido o descongelado + zanahoria rallada + pepino en rodajas.\n1–2 plátanos maduros.",
+        note: "Carga suave de CHO el sábado. Los plátanos suman glucosa + fructosa para reponer depósitos hepatico y muscular antes de mañana." },
       { type: "C", time: "14:00–15:00",
-        name: "Ensalada de sardinas con garbanzos y patatas", tags: [],
-        desc: "200 g de patatas cocidas troceadas + 150 g de garbanzos (de bote, escurridos) + 1 lata de sardinas en aceite de oliva (escurridas, 120 g) + espinacas crudas + 1 cdita. de mix de semillas + verduras al gusto. Alino al gusto con comino y AOVE.",
-        note: "Segunda toma semanal de sardinas. Esta ensalada no necesita coccion adicional." },
-      { type: "Ce", time: "20:30–21:30",
-        name: "2 Pizzas caseras", tags: [],
-        desc: "2 pizzas caseras (ver recetas).",
-        note: "Cierre de semana. Base integral, tomate, mozzarella vegana o queso fresco batido, verduras y AOVE." }
+        name: "Arroz blanco con pollo a la plancha y verduras cocidas (CHO pre-prueba)", tags: [],
+        desc: "150 g de arroz BLANCO en seco (cocido) + 175 g de pollo a la plancha + judias verdes o espinacas cocidas. Alino con oregano y AOVE.\n125 g de yogur de soja con 1 cda. de miel.",
+        note: "⚡ Arroz blanco pre-prueba: máximo CHO y mínima fibra para que los depósitos estén llenos mañana a las 08h. La comida del sábado es tan importante como la cena." },
+      { type: "Ce", time: "20:00–20:30h",
+        name: "🌙 NOCHE PREVIA: Arroz blanco + proteína magra + verdura cocida", tags: [],
+        desc: "120–150 g de arroz BLANCO en seco (cocido) + 150 g de pollo a la plancha o sardinas en lata (escurridas) + judias verdes o espinacas cocidas.\nSin especias fuertes, sin nuevos alimentos, sin grasa extra, sin lácteos.",
+        note: "⚡ PROTOCOLO NOCHE PREVIA: mañana domingo 28 es la prueba de 60m + Press Banca a las 08:00h. Cena antes de las 20:30h, hora de acostarse antes de las 23:00h. Sin alcohol. Sin alimentos no probados. La misma pauta que ya entrenamos." }
     ],
-    batchCooking: {
-      title: "Batch cooking del domingo — base para toda la semana",
-      items: [
-        "Arroz integral (300 g en seco): hervir 35-40 min, escurrir y refrigerar en tupper. Uso en: Lu comida, Mie comida.",
-        "Lentejas pardinas (200 g en seco o 2 botes): cocer 25 min con laurel o abrir botes y escurrir. Uso en: Vi comida.",
-        "Garbanzos (2 botes): escurrir y reservar en tupper con un chorrito de AOVE. Uso en: Lu cena, Ju cena y Do comida.",
-        "Patatas (400 g): cocer enteras 20 min, refrigerar sin pelar. Uso en: Lu cena, Ju cena y Do comida.",
-        "Overnight Oats (2 tarros): 60 g avena + 200 ml bebida vegetal + 1 cda. semillas chia por tarro. Refrigerar. Uso en: Lu y Mie desayuno.",
-        "Pollo a la plancha (400 g en crudo): marinar con limon, ajo, oregano y AOVE; asar 6-8 min por lado. Refrigerar. Uso en: Lu comida, Lu sandwich, Ma sandwich y Vi sandwich.",
-        "Tofu a la plancha (200 g): marinar con tamari + ajo + pimenton; asar 3-4 min por lado. Refrigerar en lonchas. Uso en: Ju sandwich."
-      ],
-      note: "Tiempo activo aprox. 35 min. Tiempo total aprox. 70-80 min. Paralelismo: arrancar arroz + lentejas, marinar y asar pollo, preparar overnight mientras enfria todo, asar tofu al final."
-    }
+    batchCooking: null
+  },
+  {
+    short: "Lu28", full: "Lunes 28 sept 💪",
+    sport: "💪 PRUEBA: 60m + Press Banca", sportClass: "fuerza",
+    sportBanner: "⚡ DÍA DE PRUEBA — 60m lisos + Press Banca · 08:00h · Velódromo Lluís Puig, Benimàmet. Despertar 04:45–05:00h. Desayuno 05:00–05:30h.",
+    suppl: "⚡ Suplementación hoy:\nCreatina 5 g — con el desayuno.\nCafeína 200 mg — tomar a las 07:15h (30–45 min antes).\nL-Citrulina 6 g — con el desayuno.", libre: false,
+    meals: [
+      { type: "D", time: "05:00–05:30h (despertar 04:45h)",
+        name: "💪 Desayuno pre-prueba 60m + Press Banca — CHO rápidos", tags: [],
+        desc: "OPCIÓN A (recomendada): 150–200 g arroz blanco cocido + 1 plátano maduro + 1–2 cdas. mermelada + agua.\nOPCIÓN B: 2 rebanadas pan blanco + 2 cdas. mermelada + 200 ml zumo de naranja + agua.\nCreatina 5 g mezclada con agua en este momento.",
+        note: "Timing: 2h30–3h antes de la prueba (08:00h) = desayuno a las 05:00–05:30h. SIN avena, SIN frutos secos, SIN lácteos. Solo las opciones ya probadas en entrenamiento." },
+      { type: "A", time: "07:15h (30–45 min antes de prueba)",
+        name: "Top-up CHO + cafeína", tags: [],
+        desc: "1/2 plátano o 2 tortitas de arroz con mermelada (~25–30 g CHO).\nCafeína 200 mg (si ya está probada en entrenamiento).",
+        note: "Igual que en la natación. El 60m y el press banca son pruebas de máxima intensidad anaeróbica — los CHO en sangre deben estar al máximo. La cafeína mejora la activación del SNC para el sprint y la fuerza." },
+      { type: "C", time: "Inmediatamente post-prueba",
+        name: "Recuperación post-60m y press banca", tags: [],
+        desc: "1 plátano + 125 g yogur de soja (en mochila).\nLuego comida completa 45–60 min después.",
+        note: "El press banca y el sprint generan daño muscular. Ventana de recuperación importante: CHO + proteína en los primeros 30 min." },
+      { type: "Ce", time: "20:00–21:00",
+        name: "Cena de recuperación + carga para lu/ma (cuerda)", tags: [],
+        desc: "150 g de pasta blanca en seco (cocida) + 150 g de pollo a la plancha o garbanzos (bote escurrido) + tomate triturado + AOVE.\n125 g de yogur de soja.",
+        note: "Lunes 29 y martes 30 son la prueba de cuerda. Hoy domingo ya empezamos a recargar para esas pruebas. CHO altos en la cena de recuperación." }
+    ],
+    batchCooking: null
   }
 ];
-
 const shopCategories = [
   {
     label: "🥩 Proteínas", cls: "cat-prot",
